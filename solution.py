@@ -7,18 +7,20 @@ class Solution(object):
             return 0
 
         total = 0
-
-        is_set = set()
+        state = list(map(lambda x: False, circuit))
+        i = 0
 
         for value in circuit:
-            is_set.add(value)
+            # If the switch index is longer than the circuit could possibly represent, ignore it
+            if value >= len(state):
+                continue
 
-            success = True
-            for i in range(0, value):
-                if i not in is_set:
-                    success = False
+            state[value] = True
 
-            if success:
+            while i < len(state) and state[i]:
+                i += 1
+
+            if i >= value:
                 total += 1
 
         return total

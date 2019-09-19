@@ -8,10 +8,13 @@ def test_solution():
     assert sol.solve([]) == 0
     assert sol.solve([0]) == 1
     assert sol.solve([1]) == 0
+    assert sol.solve([5]) == 0
     assert sol.solve([0, 1, 2]) == 3
     assert sol.solve([0, 2, 1]) == 2
     assert sol.solve([2, 1, 0]) == 1
     assert sol.solve([2, 0, 1]) == 2
+
+    assert sol.solve([5, 2, 6, 0, 3, 1, 4]) == 3
 
     assert sol.solve([100000]) == 0
 
